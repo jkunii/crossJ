@@ -1,0 +1,6 @@
+clear
+. bin/env
+
+bin/up-dep 
+bin/test 
+bin/build-dist

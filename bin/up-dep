@@ -1,0 +1,5 @@
+#!/bin/bash
+# Update your dependencies
+clear
+echo "Updating your dependencies"
+glide up -u -s

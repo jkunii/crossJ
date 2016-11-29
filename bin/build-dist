@@ -1,0 +1,12 @@
+#!/bin/bash
+. bin/env
+set -e
+
+RELEASE_VERSION=$(stepup version --next-release)
+if [[ -z "$RELEASE_VERSION" ]]; then
+	echo "RELEASE_VERSION is not set. Check stepup"
+	exit 1
+fi
+echo "Building $COMPONENT_NAME"
+CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-s' -ldflags "-X main.version=${RELEASE_VERSION}" .
+echo "${RELEASE_VERSION}" > .release-version

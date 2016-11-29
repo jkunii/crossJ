@@ -1,0 +1,29 @@
+notes:
+  after_versioned:
+    strategy: "keep" # Valid options: "keep" or "remove"
+    section: "versioning"
+    changelog_message: "available on {version}"
+  sections:
+    - name: "breaking"
+      label: "Breaking Changes:"
+    - name: "added"
+      label: "Added:"
+    - name: "bugfixes"
+      label: "Bugfixes:"
+    - name: "otherchanges"
+      label: "Other changes:"
+versioning:
+  version_mask: "v0.0.0"
+  auto_increment:
+    sections_level:
+      major:
+        - breaking
+      minor:
+        - added
+      patch:
+        - bugfixes
+        - otherchanges
+  version_levels:
+    - major
+    - minor
+    - patch

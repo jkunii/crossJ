@@ -1,0 +1,16 @@
+db:
+  image: mongo
+  ports:
+    - "27017:27017"
+  command: "--smallfiles --logpath=/dev/null"
+web:
+  build: .
+  command: /crossJ
+#   volumes:
+#     - .:/myapp
+  ports:
+    - "1323:1323"
+  links:
+    - db
+  environment:
+    PORT: 1323

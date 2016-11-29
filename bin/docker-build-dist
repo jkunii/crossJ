@@ -1,0 +1,6 @@
+clear
+. bin/env
+SOURCE_APP="/go/src/$APP_NAME"
+CMD="make dist"
+echo "$CMD"
+docker run -i -v "$PWD":"$SOURCE_APP" -w "/$SOURCE_APP" rest4hub/golang-glide-stepup bash -icx "$CMD"

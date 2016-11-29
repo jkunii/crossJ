@@ -1,0 +1,12 @@
+#!/bin/bash
+clear
+FS_WATCH="$(which fswatch)"
+if [[ "$?" == "1" ]]; then
+	# Download if not found
+	go get -u -v github.com/codeskyblue/fswatch
+	FS_WATCH="$(which fswatch)"
+	if [[ "$?" == "1" ]]; then
+		echo 'fswatch not founded. Did you add go bin path to your $PATH?'
+	fi
+fi
+fswatch
